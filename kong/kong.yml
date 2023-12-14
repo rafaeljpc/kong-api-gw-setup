@@ -26,3 +26,11 @@ services:
      - name: route-svc3
        paths:
          - "/svc3"
+     - name: route-svc3-anything
+       plugins:
+         - name: request-termination
+           config:
+             status_code: 403
+             message: disabled
+       paths:
+         - "/svc3/anything"
