@@ -1,0 +1,195 @@
+{
+    "version": 3,
+    "port": 8080,
+    "listen_ip": "0.0.0.0",
+    "echo_endpoint": true,
+    "endpoints": [
+        {
+            "endpoint": "/svc1",
+            "method": "GET",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/get",
+                    "method": "GET",
+                    "host": [
+                        "http://service1:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc1",
+            "method": "POST",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/post",
+                    "method": "POST",
+                    "host": [
+                        "http://service1:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc1",
+            "method": "PUT",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/put",
+                    "method": "PUT",
+                    "host": [
+                        "http://service1:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc2",
+            "method": "GET",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/get",
+                    "method": "GET",
+                    "host": [
+                        "http://service2:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc2",
+            "method": "POST",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/post",
+                    "method": "POST",
+                    "host": [
+                        "http://service2:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc2",
+            "method": "PUT",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/put",
+                    "method": "PUT",
+                    "host": [
+                        "http://service2:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc3",
+            "method": "GET",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/get",
+                    "method": "GET",
+                    "host": [
+                        "http://service3:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc3",
+            "method": "POST",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/post",
+                    "method": "POST",
+                    "host": [
+                        "http://service3:80"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/svc3",
+            "method": "PUT",
+            "input_headers": [
+                "*"
+            ],
+            "input_query_strings": [
+                "*"
+            ],
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/put",
+                    "method": "PUT",
+                    "host": [
+                        "http://service3:80"
+                    ]
+                }
+            ]
+        }
+    ],
+    "extra_config": {
+        "telemetry/logging": {
+            "level": "WARNING",
+            "syslog": true,
+            "stdout": true
+        }
+    }
+}

@@ -23,7 +23,23 @@ services:
     volumes:
       - ./kong:/kong
     networks:
-      - kong-net
+      - test-net
+  krakend:
+    image: devopsfaith/krakend:watch
+    ports:
+      - 8080:8080
+    volumes:
+      - ./krakend:/etc/krakend
+    command: ["run", "--config", "krakend.json"]
+    networks:
+      - test-net
+  krakend-check:
+    image: devopsfaith/krakend:latest
+    command: ["check", "--config", "krakend.json"]
+    volumes:
+      - ./krakend:/etc/krakend
+    networks:
+      - test-net
   service1:
     image: simonkowallik/httpbin
     ports:
@@ -31,7 +47,7 @@ services:
     environment:
       XHTTPBIN_X_service: service1
     networks:
-      - kong-net
+      - test-net
   service2:
     image: simonkowallik/httpbin
     ports:
@@ -39,7 +55,7 @@ services:
     environment:
       XHTTPBIN_X_service: service2
     networks:
-      - kong-net
+      - test-net
   service3:
     image: simonkowallik/httpbin
     ports:
@@ -47,8 +63,8 @@ services:
     environment:
       XHTTPBIN_X_service: service3
     networks:
-      - kong-net
+      - test-net
 
 networks:
-  kong-net:
+  test-net:
    driver: bridge
